@@ -194,6 +194,27 @@ items are removed. The custom protocol must be identified as such in papers;
 do not present it as an official CARGO protocol without an external protocol
 definition.
 
+## Diagnose a legacy Stage1 checkpoint
+
+The read-only diagnostic entry validates the protocol with an identity oracle,
+strictly checks an old `arch=agw` checkpoint against the original source tree,
+and inspects feature collapse and legacy direct-cubic GeM numerics on a fixed
+test subset. It runs the legacy model in an isolated process, never falls back
+to the stable AGW, and does not start training or download weights.
+
+```bash
+python cargo_baseline/diagnose_stage1.py \
+  --legacy-code-dir /path/to/original/PCLHD_repro_release \
+  --checkpoint /path/to/stage1/checkpoint.pth.tar \
+  --data-dir /path/to/CARGO \
+  --device cuda:0 \
+  --output-dir ./reports/cargo_stage1_diagnosis
+```
+
+See `cargo_baseline/diagnostics/README.md` for the server command, output
+contract, optional log parser, fixed-subset policy, and initialization
+comparison requirements.
+
 ## Verification before publishing
 
 ```bash

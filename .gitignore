@@ -13,6 +13,7 @@ venv/
 
 /datasets/
 /data/
+/reports/
 logs/
 outputs/
 checkpoints/

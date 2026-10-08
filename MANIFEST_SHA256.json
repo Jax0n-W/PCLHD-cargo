@@ -1,12 +1,20 @@
 {
-  ".gitignore": "66632c236939d93656f40ea33c18f110578d0c285c539251fa2f98d38eeb6da3",
+  ".gitignore": "67f61233cdd83c49e9b0d2f8fed0c71e483bae5438ed98f30c88282dd3e6e3b5",
   "LICENSE": "8c39f46c26b09bfd856bc596054c7668d11138e63980279dcc306b6f96f0b9c2",
-  "README.md": "501b86f99b2fa43ffc53836d5fc48bc97e33d2d5399c00b59b63797590031f9e",
+  "README.md": "eb8a911fb2f1c54c888cf19cb4d72e1d2bad172494818ba0a168393bc85766b2",
   "RELEASE_NOTES.md": "3b1b82ca19e826bc242f64324fdacca88fd11d1f297b4ec1c1732d4288d66e45",
   "THIRD_PARTY_NOTICES.md": "134aa0fcf2d957d1b5ec9aab55e1facbe9302ba79fefba3e533d52b136901e65",
   "cargo_baseline/_train_cargo_engine.py": "7e7c92bc227d08974697679983f0786f75d2cedb56979794b8b25a26a286f874",
   "cargo_baseline/cargo_evaluation.py": "61b79bb27c7539291fec400ba50f6352c6c63b8c948f5af25b0fa66f23682415",
   "cargo_baseline/diagnose_eps.py": "511a4b4b101cbd4953d8ea33885d288ed22914f923f14212f2e1d1d6c230a784",
+  "cargo_baseline/diagnose_stage1.py": "f13492db4df8d4a5be6c1daeef5c818680564e92072413e917a2f52432a57d78",
+  "cargo_baseline/diagnostics/README.md": "de4891df91dd8f03fe9dceaebfb84ce257660d419046b0b2d01303f797f53898",
+  "cargo_baseline/diagnostics/__init__.py": "5090fceef056ae78b9e8080fb5230af4396cb95c06b4d38c1a76d36d324b6cdb",
+  "cargo_baseline/diagnostics/checkpoint_diagnostics.py": "843846ec23dabf921e95bce81751fb0cb19d6044468150b0ed26c59958a124f3",
+  "cargo_baseline/diagnostics/feature_health.py": "04561f38e76d35b2cfb4be7e4088942a9ffa2b3a9b536d182aa2677d61db5abd",
+  "cargo_baseline/diagnostics/legacy_worker.py": "36683151b45d495b4beb3fb4a5933672b23b96a6eaa1d3f31868c0167b8a9976",
+  "cargo_baseline/diagnostics/model_compatibility.py": "8e6e353b590efb1354d02b3c614090424e0760f886975d4a49c034d3762cf5d8",
+  "cargo_baseline/diagnostics/protocol_oracle.py": "1c41f5eb60e42d59eb08e5c4a38fdec1d970a9507fb9ff4152a2d311b4d4cfd7",
   "cargo_baseline/evaluate_cargo.py": "5369799632f9d86803b5974ba6df4fc35545ba9034850ec3625fe28871f16f50",
   "cargo_baseline/inspect_cargo.py": "0487befd6dcd72d16e24f3386de844360abe32f570c35e47b082cc32e1bf3f61",
   "cargo_baseline/train_cargo.py": "a9e00b86fbe3d815c4f065a2054b1f25c54f66417505e87d8a475eb2171a4350",
@@ -45,6 +53,9 @@
   "scripts/evaluate.sh": "dfab2d55cc087ff57784ba8dc4f3c4ef01f94861841b8c4108123444779cf188",
   "scripts/smoke_test.sh": "5f07a9d9ad7bcaea0ce12379dc210a0f434a8344040ad93e17cfccde40423165",
   "scripts/train.sh": "1fc40e628b7540ffe3f513693d1046360b2f39a0120fe408c904a9ed81091947",
+  "tests/test_cargo_checkpoint_diagnostics.py": "5842565b262c9b47b39421248e0b30107f57e681ec1a679f2320faccfa1fbe79",
+  "tests/test_cargo_feature_health.py": "65139b1133f72854e664f56de2beeca77844bed68df32890fe1a7300c78da509",
+  "tests/test_cargo_protocol_oracle.py": "2a3db1610ea56d4ea3fa6b8ba0a02c23dec8149c390faccec2466b912776438d",
   "tests/test_release_contract.py": "e09296260ada71c258cba465b548c59fd7aaa984c171b7bc8f775481232bced9",
-  "verify_release.py": "1e5251ebfa5789570493355d8312b499f1588b7471d99cd98e1873c6e0eac59d"
+  "verify_release.py": "70da34c71bb4cd40d7d77f440455551acc5f3a090c7859a3f6de1da97fc119ae"
 }
