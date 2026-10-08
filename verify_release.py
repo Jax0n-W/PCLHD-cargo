@@ -18,8 +18,16 @@ REQUIRED = {
     "cargo_baseline/train_cargo.py",
     "cargo_baseline/_train_cargo_engine.py",
     "cargo_baseline/evaluate_cargo.py",
+    "clustercontrast/datasets/__init__.py",
+    "clustercontrast/datasets/cargo_aerial.py",
     "clustercontrast/datasets/cargo_common.py",
+    "clustercontrast/datasets/cargo_ground.py",
     "clustercontrast/models/agw_cargo_stable.py",
+    "clustercontrast/utils/data/__init__.py",
+    "clustercontrast/utils/data/base_dataset.py",
+    "clustercontrast/utils/data/preprocessor.py",
+    "clustercontrast/utils/data/sampler.py",
+    "clustercontrast/utils/data/transforms.py",
 }
 FORBIDDEN_TEXT = (
     re.compile(r"/home/", re.IGNORECASE),
@@ -40,7 +48,8 @@ def main() -> None:
         relative = path.relative_to(ROOT).as_posix()
         if relative == "MANIFEST_SHA256.json":
             continue
-        if "__pycache__" in path.parts:
+        relative_parts = Path(relative).parts
+        if ".git" in relative_parts or "__pycache__" in relative_parts:
             continue
         if path.suffix.lower() in FORBIDDEN_SUFFIXES:
             violations.append("forbidden artifact: {}".format(relative))

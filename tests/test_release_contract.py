@@ -5,6 +5,17 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 ENGINE = ROOT / "cargo_baseline" / "_train_cargo_engine.py"
+REQUIRED_DATA_SOURCE = (
+    "clustercontrast/datasets/__init__.py",
+    "clustercontrast/datasets/cargo_aerial.py",
+    "clustercontrast/datasets/cargo_common.py",
+    "clustercontrast/datasets/cargo_ground.py",
+    "clustercontrast/utils/data/__init__.py",
+    "clustercontrast/utils/data/base_dataset.py",
+    "clustercontrast/utils/data/preprocessor.py",
+    "clustercontrast/utils/data/sampler.py",
+    "clustercontrast/utils/data/transforms.py",
+)
 
 
 class ReleaseContractTests(unittest.TestCase):
@@ -49,6 +60,20 @@ class ReleaseContractTests(unittest.TestCase):
                     if isinstance(key, ast.Constant) and isinstance(key.value, str):
                         factory_keys.add(key.value)
         self.assertEqual(factory_keys, {"cargo_aerial", "cargo_ground"})
+
+    def test_data_source_directories_are_published(self):
+        for relative_path in REQUIRED_DATA_SOURCE:
+            self.assertTrue((ROOT / relative_path).is_file(), relative_path)
+
+        ignore_rules = {
+            line.strip()
+            for line in (ROOT / ".gitignore").read_text(encoding="utf-8").splitlines()
+            if line.strip() and not line.lstrip().startswith("#")
+        }
+        self.assertIn("/datasets/", ignore_rules)
+        self.assertIn("/data/", ignore_rules)
+        self.assertNotIn("datasets/", ignore_rules)
+        self.assertNotIn("data/", ignore_rules)
 
 
 if __name__ == "__main__":

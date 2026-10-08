@@ -11,8 +11,8 @@ venv/
 .vscode/
 .DS_Store
 
-datasets/
-data/
+/datasets/
+/data/
 logs/
 outputs/
 checkpoints/
