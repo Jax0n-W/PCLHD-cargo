@@ -215,6 +215,32 @@ See `cargo_baseline/diagnostics/README.md` for the server command, output
 contract, optional log parser, fixed-subset policy, and initialization
 comparison requirements.
 
+### Follow-up: train-split representation and pseudo-label audit
+
+The follow-up entry reads the supplied legacy source tree, compares an exact
+ImageNet AGW initialization with the Stage1 checkpoint on deterministic
+cross-camera AA/GG train probes, and inventories saved pseudo-label artifacts.
+Real train identities are marked `DIAGNOSTIC_GT_ONLY` and are used only after
+inference for diagnostic metrics.
+
+```bash
+python cargo_baseline/diagnose_stage1_followup.py \
+  --legacy-code-dir /path/to/original/PCLHD_repro_release \
+  --checkpoint /path/to/stage1/checkpoint.pth.tar \
+  --imagenet-weights /path/to/imagenet_agw_init.pth.tar \
+  --data-dir /path/to/CARGO \
+  --device cuda:0 \
+  --mode audit sample \
+  --output-dir ./reports/cargo_stage1_followup
+```
+
+Full single-domain reclustering is disabled by default. It requires the
+additional `--mode full-cluster --enable-full-reclustering` gate and explicit
+`--aerial-eps`, `--ground-eps`, `--k1`, `--k2`, and `--min-samples` values.
+Recomputed labels are always marked
+`CHECKPOINT_RECLUSTER_NOT_HISTORICAL_EPOCH_LABELS`; they are never represented
+as labels saved during the original training run.
+
 ## Verification before publishing
 
 ```bash

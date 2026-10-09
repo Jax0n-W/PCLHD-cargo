@@ -19,7 +19,12 @@ REQUIRED = {
     "cargo_baseline/_train_cargo_engine.py",
     "cargo_baseline/evaluate_cargo.py",
     "cargo_baseline/diagnose_stage1.py",
+    "cargo_baseline/diagnose_stage1_followup.py",
+    "cargo_baseline/diagnostics/followup_worker.py",
     "cargo_baseline/diagnostics/legacy_worker.py",
+    "cargo_baseline/diagnostics/pipeline_consistency.py",
+    "cargo_baseline/diagnostics/pseudo_label_audit.py",
+    "cargo_baseline/diagnostics/train_feature_probe.py",
     "cargo_baseline/diagnostics/protocol_oracle.py",
     "cargo_baseline/diagnostics/feature_health.py",
     "cargo_baseline/diagnostics/model_compatibility.py",
@@ -55,7 +60,8 @@ def main() -> None:
         if relative == "MANIFEST_SHA256.json":
             continue
         relative_parts = Path(relative).parts
-        if ".git" in relative_parts or "__pycache__" in relative_parts:
+        if (".git" in relative_parts or "__pycache__" in relative_parts
+                or (relative_parts and relative_parts[0] == "reports")):
             continue
         if path.suffix.lower() in FORBIDDEN_SUFFIXES:
             violations.append("forbidden artifact: {}".format(relative))
